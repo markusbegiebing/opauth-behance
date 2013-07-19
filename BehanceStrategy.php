@@ -62,7 +62,7 @@ class BehanceStrategy extends OpauthStrategy{
 	 * Internal callback, after OAuth
 	 */
 	public function oauth2callback(){
-	
+		
 		if (array_key_exists('state', $_GET) && !empty($_GET['state'])){
 			if ($_GET['state'] == $_SESSION['Behance.state']) {	
 				if (array_key_exists('code', $_GET) && !empty($_GET['code'])){
@@ -150,7 +150,7 @@ class BehanceStrategy extends OpauthStrategy{
 		} else {
 			$error = array(
 				'code' => 'oauth2callback_error',
-				'message' => 'State not present',
+				'message' => 'Authentication aborted by user',
 				'raw' => $_GET
 			);
 			
